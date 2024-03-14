@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <span>你好：！！！</span>
+    <div class="div1">Chrome:</div>
+    <div class="div2">Firefox:</div>
+    <div class="div3">Safari:</div>
+    <div class="div4"></div>
+    <div class="div5"></div>
+    <div class="div6"></div>
+
+
+    <div class="div7"></div>
+    <div class="div8"></div>
+
+
+    
+</body>
+<script>
+
+const browserName = window.navigator.userAgent;
+
+document.querySelector('.div4').innerHTML = browserName;
+
+let a = browserName.includes('Chrome');
+console.log(a);
+document.querySelector('.div1').innerHTML = a;
+
+let b = browserName.includes('Firefox');
+console.log(b);
+document.querySelector('.div2').innerHTML = b;
+
+let c = browserName.includes('Safari');
+console.log(c);
+document.querySelector('.div3').innerHTML = c;
+
+
+
+let d = browserName.includes('Ipad');
+console.log(d);
+document.querySelector('.div5').innerHTML = d;
+
+let e = browserName.includes('Iphone');
+console.log(e);
+document.querySelector('.div6').innerHTML = e;
+
+
+
+let f = browserName.includes('Ipod') && browserName.includes('CriOS');
+console.log(f);
+document.querySelector('.div7').innerHTML = f;
+
+
+let g = browserName.includes('Ipod') && browserName.includes('EdgiOS');
+console.log(g);
+document.querySelector('.div8').innerHTML = g;
+
+
+
+</script>
+</html>
