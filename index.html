@@ -7,17 +7,45 @@
 </head>
 <body>
 
-    <span>你好：！！！</span>
-    <div class="div1">Chrome:</div>
-    <div class="div2">Firefox:</div>
-    <div class="div3">Safari:</div>
-    <div class="div4"></div>
-    <div class="div5"></div>
-    <div class="div6"></div>
+    <div>
+       当前浏览器信息： <span class="div4"></span>
+    </div>
+        <div>
+           Chrom：<span class="div1"></span>
+        </div>
+        <div>
+           Firefox：<span class="div2"></span>
+        </div>
+        <div>
+            Safari <span class="div3"></span>
+        </div>
+        <div>
+            Ipad  <span class="div5"></span>
+        </div>
+        <div>
+            Iphone <span class="div6"></span>
+        </div>
 
 
-    <div class="div7"></div>
-    <div class="div8"></div>
+        <div>
+            Ipad & chorme  <span class="div7"></span>
+        </div>
+        <div>
+            Ipad & edge   <span class="div8"></span>
+        </div>
+        <div>
+            Ipad & safari   <span class="div9"></span>
+        </div>
+
+
+        <div>
+            Ipad -1& chorme  <span class="div10"></span>
+        </div>
+        <div>
+            Ipad -1 edge   <span class="div11"></span>
+        </div>
+  
+
 
 
     
@@ -60,6 +88,19 @@ document.querySelector('.div7').innerHTML = f;
 let g = browserName.includes('Ipod') && browserName.includes('EdgiOS');
 console.log(g);
 document.querySelector('.div8').innerHTML = g;
+
+let h = browserName.includes('Ipod') && browserName.includes('Safari'); 
+console.log(h);
+document.querySelector('.div9').innerHTML = h;
+
+
+let i = browserName.includes('CriOS');
+console.log(i);
+document.querySelector('.div10').innerHTML = i;
+
+let j = browserName.includes('EdgiOS');
+console.log(j);
+document.querySelector('.div11').innerHTML = j;
 
 
 
