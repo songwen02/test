@@ -3,106 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Raycasting Demo</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-
-    <div>
-       当前浏览器信息： <span class="div4"></span>
-    </div>
-        <div>
-           Chrom：<span class="div1"></span>
-        </div>
-        <div>
-           Firefox：<span class="div2"></span>
-        </div>
-        <div>
-            Safari <span class="div3"></span>
-        </div>
-        <div>
-            Ipad  <span class="div5"></span>
-        </div>
-        <div>
-            Iphone <span class="div6"></span>
-        </div>
-
-
-        <div>
-            Ipad & chorme  <span class="div7"></span>
-        </div>
-        <div>
-            Ipad & edge   <span class="div8"></span>
-        </div>
-        <div>
-            Ipad & safari   <span class="div9"></span>
-        </div>
-
-
-        <div>
-            Ipad -1& chorme  <span class="div10"></span>
-        </div>
-        <div>
-            Ipad -1 edge   <span class="div11"></span>
-        </div>
-  
-
-
-
-    
+    <canvas id="canvas"></canvas>
+    <script src="index.js"></script>
 </body>
-<script>
-
-const browserName = window.navigator.userAgent;
-
-document.querySelector('.div4').innerHTML = browserName;
-
-let a = browserName.includes('Chrome');
-console.log(a);
-document.querySelector('.div1').innerHTML = a;
-
-let b = browserName.includes('Firefox');
-console.log(b);
-document.querySelector('.div2').innerHTML = b;
-
-let c = browserName.includes('Safari');
-console.log(c);
-document.querySelector('.div3').innerHTML = c;
-
-
-
-let d = browserName.includes('Ipad');
-console.log(d);
-document.querySelector('.div5').innerHTML = d;
-
-let e = browserName.includes('Iphone');
-console.log(e);
-document.querySelector('.div6').innerHTML = e;
-
-
-
-let f = browserName.includes('Ipod') && browserName.includes('CriOS');
-console.log(f);
-document.querySelector('.div7').innerHTML = f;
-
-
-let g = browserName.includes('Ipod') && browserName.includes('EdgiOS');
-console.log(g);
-document.querySelector('.div8').innerHTML = g;
-
-let h = browserName.includes('Ipod') && browserName.includes('Safari'); 
-console.log(h);
-document.querySelector('.div9').innerHTML = h;
-
-
-let i = browserName.includes('CriOS');
-console.log(i);
-document.querySelector('.div10').innerHTML = i;
-
-let j = browserName.includes('EdgiOS');
-console.log(j);
-document.querySelector('.div11').innerHTML = j;
-
-
-
-</script>
 </html>
