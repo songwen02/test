@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raycasting Test</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #canvas {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #target {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas">
+        <div id="target"></div>
+    </div>
+
+    <script>
+        document.getElementById('canvas').addEventListener('click', performRaycast);
+
+        function performRaycast(event) {
+            // 计算点击位置在屏幕中的位置
+            var screenCenterX = window.innerWidth / 2;
+            var screenCenterY = window.innerHeight / 2;
+
+            // 创建一个射线查询对象
+            var raycastQuery = {
+                origin: { x: screenCenterX, y: screenCenterY },
+                direction: { x: 0, y: 0, z: -1 } // 向屏幕内部发射射线
+            };
+
+            // 执行射线投射
+            var raycastResults = raycast(raycastQuery);
+
+            // 处理射线投射结果
+            if (raycastResults.length > 0) {
+                // 如果有碰撞，将目标物体移动到碰撞点
+                var hitPosition = raycastResults[0].hitPosition;
+                var target = document.getElementById('target');
+                target.style.left = (hitPosition.x - target.offsetWidth / 2) + 'px';
+                target.style.top = (hitPosition.y - target.offsetHeight / 2) + 'px';
+            }
+        }
+
+        // 模拟射线投射函数
+        function raycast(query) {
+            // 这里模拟射线投射并返回一个虚拟的射线投射结果数组
+            var hitPosition = { x: query.origin.x, y: query.origin.y, z: 0 }; // 假设射线击中的位置为屏幕中心
+            return [{ hitPosition: hitPosition }];
+        }
+    </script>
+</body>
+</html>
