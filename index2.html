@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Touch Event Demo</title>
+<style>
+  /* 添加样式，使画布占据整个屏幕 */
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  #coordinates {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- 创建用于渲染的画布元素 -->
+<canvas id="myCanvas"></canvas>
+
+<!-- 用于显示坐标的元素 -->
+<div id="coordinates"></div>
+
+<script>
+  // 获取画布元素
+  const canvas = document.getElementById('myCanvas');
+  // 设置画布的宽度和高度
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // 获取绘图上下文
+  const ctx = canvas.getContext('2d');
+
+  // 获取用于显示坐标的元素
+  const coordinatesDiv = document.getElementById('coordinates');
+
+  // 添加触摸事件处理函数
+  function onTouchStart(ev) {
+    const touch = ev.touches[0];
+    const x = touch.clientX;
+    const y = touch.clientY;
+    updateCoordinates(x, y);
+  }
+
+  function onTouchMove(ev) {
+    const touch = ev.touches[0];
+    const x = touch.clientX;
+    const y = touch.clientY;
+    updateCoordinates(x, y);
+    // 在这里可以处理触摸移动事件，例如绘制路径等
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+
+  function onTouchEnd(ev) {
+    // 清空坐标显示
+    coordinatesDiv.textContent = '';
+  }
+
+  // 更新坐标显示
+  function updateCoordinates(x, y) {
+    coordinatesDiv.textContent = `X: ${x}, Y: ${y}`;
+  }
+
+  // 添加触摸事件监听器，并绑定事件处理函数的执行上下文为当前对象
+  canvas.addEventListener('touchstart', onTouchStart);
+  canvas.addEventListener('touchmove', onTouchMove);
+  canvas.addEventListener('touchend', onTouchEnd);
+</script>
+
+</body>
+</html>
